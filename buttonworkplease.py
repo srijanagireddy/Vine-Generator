@@ -20,26 +20,23 @@ vineHappyNamesList = []
 vineNeutralNamesList = []
 vineSadNamesList = []
 
-for i in range(0, 5):
+for i in range(0, 4):
     vineHappyNamesList.append('sudo aplay /home/pi/vine-audio-project/recordings/' + vineHappyNames[i])
 
-for i in range(0, 5):
+for i in range(0, 4):
     vineNeutralNamesList.append('sudo aplay /home/pi/vine-audio-project/recordings/' + vineNeutralNames[i])
 
-for i in range(0, 5):
+for i in range(0, 4):
     vineSadNamesList.append('sudo aplay /home/pi/vine-audio-project/recordings/' + vineSadNames[i])
 
 
 while True:
-    if GPIO.input(7): # if port 25 == 1
-        print("hello")
-        os.system(vineHappyNamesList[random.randint(0, 5)])
+    if GPIO.input(7): 
+        os.system(vineHappyNamesList[random.randint(0, 4)])
         sleep(0.1)         # wait 0.1 seconds
-    if GPIO.input(16): # if port 25 == 1
-        print("hello")
-        os.system(vineNeutralNamesList[random.randint(0, 5)])
+    if GPIO.input(16):
+        os.system(vineNeutralNamesList[random.randint(0, 4)])
         sleep(0.1)         # wait 0.1 seconds
-    if GPIO.input(15): # if port 25 == 1
-        print("hello")
-        os.system(vineSadNamesList[random.randint(0, 5)])
+    if GPIO.input(15):
+        os.system(vineSadNamesList[random.randint(0, 4)])
         sleep(0.1)         # wait 0.1 seconds
